@@ -9,19 +9,18 @@ class Song
         @name = name
         @artist = artist
         @genre = genre
-        @@count+=1
-        @@artists <<  self.artist
-        @@genres <<  self.genre
+        @@count += 1
+        @@artists <<  artist
+        @@genres <<  genre
     end
-    
     
     def self.count
         @@count
     end
-    
+
     def self.genres
         @@genres.uniq
-    end  
+    end
 
     def self.artists
         @@artists.uniq
@@ -29,16 +28,15 @@ class Song
     
     def self.genre_count
         genre_count = {}
-        @@genres.tally.each{|genre, count|genre_count[genre] = count}
-        genre_count
-    
+        @@genres.tally.each do |count,genre|
+            genre_count[genre] = count
+        end
     end
-
+        
     def self.artist_count
-        artist_count = {}
-        @@artists.tally.each{|artist, count|artist_count[artist] = count}
-        artist_count
+        artist_count= {}
+        @@artists.tally.each{|count,artist| artist_count[artist] = count}
     end
-
 
 end
+    
