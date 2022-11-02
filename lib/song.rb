@@ -28,14 +28,16 @@ class Song
     
     def self.genre_count
         genre_count = {}
-        @@genres.tally.each do |count,genre|
+        @@genres.tally.each do |genre,count|
             genre_count[genre] = count
         end
+        genre_count
     end
         
     def self.artist_count
         artist_count= {}
-        @@artists.tally.each{|count,artist| artist_count[artist] = count}
+        @@artists.tally.each{|artist,count| artist_count[artist] = count}
+        artist_count
     end
 
 end
