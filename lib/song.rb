@@ -35,8 +35,9 @@ class Song
     end
         
     def self.artist_count
-        artist_count= {}
+        artist_count = {}
         @@artists.tally.each{|artist,count| artist_count[artist] = count}
+        
         artist_count
     end
 
